@@ -1,29 +1,29 @@
-// import React, { Component } from "react";
 import React from "react";
-import { Link } from "react-router-dom";
-
-// class Header extends Component {
-// render() {
-// return;
+import "./styles.css";
+import { NavLink } from "react-router-dom";
 
 const Header = () => (
-  <header>
+  <header className="header" style={{ textDecoration: "none" }}>
     <nav>
       <ul>
         <li>
-          <Link to="/home">Home</Link>
+          <NavLink to="/home" activeClassName="active" className="text-link">
+            Home
+          </NavLink>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <NavLink to="/about" activeClassName="active" className="text-link">
+            About
+          </NavLink>
         </li>
         <li>
-          <Link to="/product">Product</Link>
+          <NavLink to="/product" activeClassName="active" className="text-link">
+            Product
+          </NavLink>
         </li>
       </ul>
     </nav>
   </header>
 );
-// }
-// }
 
 export default Header;

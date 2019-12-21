@@ -1,0 +1,12 @@
+.text-link {
+  color: white;
+  text-decoration: none;
+  list-style: none;
+}
+li {
+  list-style: none;
+}
+
+.active {
+  color: red;
+}
