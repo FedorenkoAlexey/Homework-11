@@ -1,3 +1,10 @@
+.header-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  /* border: 1px solid red; */
+}
 .text-link {
   color: white;
   text-decoration: none;
@@ -8,5 +15,5 @@ li {
 }
 
 .active {
-  color: red;
+  color: #ff5c36;
 }

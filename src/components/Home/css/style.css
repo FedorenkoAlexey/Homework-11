@@ -1,0 +1,107 @@
+.home-wrapper {
+  height: 720px;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+.home-wrapper .center {
+  min-height: 300px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.home-wrapper .center h1 {
+  font-size: 50px;
+  line-height: 46px;
+  color: #6b6b6b;
+  font-family: "Open Sans";
+  font-weight: 600;
+  text-align: center;
+}
+.home-wrapper .center .smart {
+  color: #fc6f4e;
+}
+.home-wrapper .center .text {
+  width: 55%;
+  height: 68px;
+  font-size: 16px;
+  color: #6b6b6b;
+  line-height: 25px;
+  font-family: "Open Sans";
+  font-weight: 400;
+  text-align: center;
+}
+.home-wrapper .bottom {
+  display: flex;
+  height: 450px;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-left: 2%;
+}
+.home-wrapper .bottom .message {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 372px;
+  height: 388px;
+  border-radius: 2px;
+  filter: drop-shadow(0 0 28.5px rgba(20, 20, 21, 0.2));
+  background-color: #ffffff;
+  margin-left: 80px;
+}
+.home-wrapper .bottom .message h3 {
+  font-size: 20px;
+  line-height: 25px;
+  color: #37302f;
+  font-family: "Open Sans";
+  font-weight: 600;
+  text-align: center;
+}
+.home-wrapper .bottom .message h3 .send {
+  color: #ff5c36;
+}
+.home-wrapper .bottom .message .input {
+  color: #adadad;
+  margin-left: -140px;
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 25px;
+  border: none;
+  outline: none;
+}
+.home-wrapper .bottom .message .line {
+  width: 294px;
+  height: 2px;
+  margin-top: -20px;
+  border-bottom: 2px solid #adadad;
+}
+.home-wrapper .bottom .message .mess {
+  color: #adadad;
+  margin-left: -200px;
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 25px;
+}
+.home-wrapper .bottom .message .mess-type {
+  width: 294px;
+  height: 10px;
+  border-bottom: 2px solid #adadad;
+}
+.home-wrapper .bottom .message a {
+  text-decoration: none;
+  background: #ff5c36;
+  padding: 10px 80px;
+  color: white;
+  border: 1px solid;
+  border-radius: 25px;
+  font-size: 18px;
+  margin: 10px;
+}
