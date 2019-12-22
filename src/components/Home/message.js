@@ -1,11 +1,19 @@
 import React from "react";
-// import "./css/style.css";
-// import "./css/fonts.css";
 
 class Message extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  onLoginHandle = e => {
+    console.log(e.target.value);
+    console.log(this.props.setLoginText);
+    // this.props.setLoginText(e.target.value);
+  };
+
+  onPasswordHandle = e => {
+    this.props.setPasswordText(e.target.value);
+  };
 
   render() {
     return (
@@ -13,9 +21,21 @@ class Message extends React.Component {
         <h3 className="test">
           <span className="send">Login </span>To access the site
         </h3>
-        <input className="input" placeholder="Your Name" />
+        <input
+          type="text"
+          className="input"
+          placeholder="Your Login"
+          value={this.props.login}
+          onChange={this.onLoginHandle}
+        />
         <div className="line"></div>
-        <input className="input" placeholder="Your Password" />
+        <input
+          type="password"
+          className="input"
+          placeholder="Your Password"
+          value={this.props.password}
+          onChange={this.onPasswordHandle}
+        />
         <div className="line"></div>
         <a>LOGIN</a>
       </div>

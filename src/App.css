@@ -2,7 +2,8 @@
   text-align: center;
   background-color: #282c34;
   color: white;
-  min-height: 1100px;
+  /* min-height: 1100px; */
+  height: auto;
   font-size: 36px;
 }
 
