@@ -2,15 +2,18 @@ import {
   AUTH_LOGIN_TEXT,
   AUTH_PASSWORD_TEXT,
   SET_LOGIN_TRUE,
-  SET_LOGIN_FALSE
+  SET_LOGIN_FALSE,
+  ACTIVE_SPINNER,
+  SPINNER_OFF
 } from "./actions";
 
 const defState = {
-  authLogin: "Alex",
-  authPassword: "123",
+  authLogin: "",
+  authPassword: "",
   login: "",
   password: "",
-  isAuth: false
+  isAuth: false,
+  isLoading: false
 };
 
 export const authReducer = (state = defState, action) => {
@@ -34,6 +37,16 @@ export const authReducer = (state = defState, action) => {
       return {
         ...state,
         isAuth: action.payload
+      };
+    case ACTIVE_SPINNER:
+      return {
+        ...state,
+        isLoading: action.payload
+      };
+    case SPINNER_OFF:
+      return {
+        ...state,
+        isLoading: action.payload
       };
   }
   return state;

@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import { connect } from "react-redux";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import Header from "../components/Header/Header";
@@ -8,17 +9,19 @@ import ProductComponent from "../components/Product/ProductComponent";
 
 class Routes extends PureComponent {
   render() {
-    console.log(this.props);
+    // console.log(this.props.isAuth);
     return (
       <div className="app-routes">
         <BrowserRouter>
           <Header />
           <Switch>
             <Route exact path="/home" component={HomeComponent} />
+            {this.props.isAuth ? (
+              <Route path="/product" component={ProductComponent} />
+            ) : (
+              <Redirect from="/" to="/home" />
+            )}
             <Route path="/about" component={AboutComponent} />
-            <Route path="/product" component={ProductComponent} />
-
-            <Redirect from="/" to="/home" />
           </Switch>
         </BrowserRouter>
       </div>
@@ -26,6 +29,13 @@ class Routes extends PureComponent {
   }
 }
 
+const mapState = state => {
+  return {
+    isAuth: state.auth.isAuth
+  };
+};
+
 Routes.defaultProps = {};
 
-export default Routes;
+// export default Routes;
+export default connect(mapState)(Routes);

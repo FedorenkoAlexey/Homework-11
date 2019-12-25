@@ -7,7 +7,9 @@ import {
   setPasswordText,
   setLoginText,
   setLogin,
-  setLogOut
+  setLogOut,
+  activateSpinner,
+  spinnerOff
 } from "../../store/auth/actions";
 
 class HomeComponent extends Component {
@@ -24,19 +26,27 @@ class HomeComponent extends Component {
   onLogin = () => {
     const { authLogin, authPassword, login, password } = this.props;
     if (authLogin === login && authPassword === password) {
-      this.props.setLogin();
+      this.props.setLoginText("");
+      this.props.setPasswordText("");
+      this.props.activateSpinner();
+      console.log("1");
+      setTimeout(() => {
+        this.props.setLogin();
+      }, 2000);
+      console.log("2");
     } else {
       alert("NO");
     }
   };
 
   onLogout = () => {
+    this.props.spinnerOff();
     this.props.setLogOut();
   };
 
   render() {
-    const { login, password, isAuth } = this.props;
-    console.log(login, password);
+    const { login, password, isAuth, isLoading } = this.props;
+    console.log(this.props);
     return (
       <div className="home-wrapper">
         <div className="center">
@@ -77,6 +87,12 @@ class HomeComponent extends Component {
               </button>
             ) : (
               <button className="login-btn" onClick={this.onLogin}>
+                {isLoading && (
+                  <i
+                    className="fa fa-spinner fa-spin fa-1g fa-fw"
+                    style={{ marginRight: "5px" }}
+                  />
+                )}
                 Sign In
               </button>
             )}
@@ -92,6 +108,7 @@ const mapState = state => {
     login: state.auth.login,
     password: state.auth.password,
     isAuth: state.auth.isAuth,
+    isLoading: state.auth.isLoading,
     authLogin: state.auth.authLogin,
     authPassword: state.auth.authPassword
   };
@@ -101,7 +118,9 @@ const mapDispatch = {
   setLoginText: setLoginText,
   setPasswordText: setPasswordText,
   setLogin: setLogin,
-  setLogOut: setLogOut
+  setLogOut: setLogOut,
+  activateSpinner: activateSpinner,
+  spinnerOff: spinnerOff
 };
 
 export default connect(mapState, mapDispatch)(HomeComponent);
