@@ -8,6 +8,7 @@ import ProductComponent from "../components/Product/ProductComponent";
 
 class Routes extends PureComponent {
   render() {
+    console.log(this.props);
     return (
       <div className="app-routes">
         <BrowserRouter>

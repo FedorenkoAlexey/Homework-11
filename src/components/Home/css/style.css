@@ -95,8 +95,9 @@
   height: 10px;
   border-bottom: 2px solid #adadad;
 }
-.home-wrapper .bottom .message a {
+.home-wrapper .bottom .message .login-btn {
   text-decoration: none;
+  outline: none;
   background: #ff5c36;
   padding: 10px 80px;
   color: white;

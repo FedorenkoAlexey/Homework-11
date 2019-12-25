@@ -1,8 +1,16 @@
-import { AUTH_LOGIN_TEXT, AUTH_PASSWORD_TEXT } from "./actions";
+import {
+  AUTH_LOGIN_TEXT,
+  AUTH_PASSWORD_TEXT,
+  SET_LOGIN_TRUE,
+  SET_LOGIN_FALSE
+} from "./actions";
 
 const defState = {
+  authLogin: "Alex",
+  authPassword: "123",
   login: "",
-  password: ""
+  password: "",
+  isAuth: false
 };
 
 export const authReducer = (state = defState, action) => {
@@ -17,8 +25,28 @@ export const authReducer = (state = defState, action) => {
         ...state,
         password: action.payload
       };
+    case SET_LOGIN_TRUE:
+      return {
+        ...state,
+        isAuth: action.payload
+      };
+    case SET_LOGIN_FALSE:
+      return {
+        ...state,
+        isAuth: action.payload
+      };
   }
   return state;
 };
+
+// export const loginReducer = (satte = defState, action) => {
+//   switch (action.type) {
+//     case SET_LOGIN_TRUE:
+//       return {
+//         ...satte,
+//         isAuth: action.payload
+//       };
+//   }
+// };
 
 // export default authReducer;
