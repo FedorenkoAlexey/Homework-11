@@ -16,7 +16,6 @@ class ProductComponent extends Component {
             <span className="serv">Services </span>We Provide
           </h1>
           <p className="text4">
-            {" "}
             Lorem ipsum dolor sit amet consectetur adipiscing elit Maiores fuga
             provident Libero.
           </p>

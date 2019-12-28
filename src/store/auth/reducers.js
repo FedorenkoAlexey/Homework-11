@@ -8,8 +8,8 @@ import {
 } from "./actions";
 
 const defState = {
-  authLogin: "",
-  authPassword: "",
+  authLogin: "1",
+  authPassword: "1",
   login: "",
   password: "",
   isAuth: false,

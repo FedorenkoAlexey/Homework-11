@@ -16,6 +16,13 @@ import {
 } from "../../store/auth/actions";
 
 class HomeComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      errColor: "",
+      errBorder: ""
+    };
+  }
   onLoginHandle = e => {
     console.log(e.target.value);
     this.props.setLoginText(e.target.value);
@@ -53,7 +60,16 @@ class HomeComponent extends Component {
         this.props.setLogin();
       }, 1000);
     } else {
-      alert("NO");
+      this.setState({
+        errColor: "#ff9595",
+        errBorder: " 2px solid red"
+      });
+      setTimeout(() => {
+        this.setState({
+          errColor: "",
+          errBorder: ""
+        });
+      }, 1500);
     }
   };
 
@@ -64,6 +80,11 @@ class HomeComponent extends Component {
 
   render() {
     const { login, password, isAuth, isLoading } = this.props;
+    // const errorColor = { border: "2px solid red", background: "#ff9595" };
+    const errorColor = {
+      border: this.state.errBorder,
+      background: this.state.errColor
+    };
     // console.log(this.props);
     return (
       <div className="home-wrapper">
@@ -84,6 +105,7 @@ class HomeComponent extends Component {
               <span className="send">Sign In </span>To access the site
             </h3>
             <input
+              style={errorColor}
               type="text"
               className="input"
               placeholder="Login"
@@ -92,6 +114,7 @@ class HomeComponent extends Component {
             />
             <div className="line"></div>
             <input
+              style={errorColor}
               type="password"
               className="input"
               placeholder="Password"
