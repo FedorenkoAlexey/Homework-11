@@ -80,12 +80,10 @@ class HomeComponent extends Component {
 
   render() {
     const { login, password, isAuth, isLoading } = this.props;
-    // const errorColor = { border: "2px solid red", background: "#ff9595" };
     const errorColor = {
       border: this.state.errBorder,
       background: this.state.errColor
     };
-    // console.log(this.props);
     return (
       <div className="home-wrapper">
         <div className="center">
@@ -101,27 +99,36 @@ class HomeComponent extends Component {
         </div>
         <div className="bottom">
           <div className="message">
-            <h3 className="test">
-              <span className="send">Sign In </span>To access the site
-            </h3>
-            <input
-              style={errorColor}
-              type="text"
-              className="input"
-              placeholder="Login"
-              value={login}
-              onChange={this.onLoginHandle}
-            />
-            <div className="line"></div>
-            <input
-              style={errorColor}
-              type="password"
-              className="input"
-              placeholder="Password"
-              value={password}
-              onChange={this.onPasswordHandle}
-            />
-            <div className="line"></div>
+            {isAuth ? (
+              <h3 className="test">
+                <span className="send">Welcome </span>
+              </h3>
+            ) : (
+              <div className="auth-container">
+                <h3 className="test">
+                  <span className="send">Sign In </span>To access the site
+                </h3>
+                <input
+                  style={errorColor}
+                  type="text"
+                  className="input"
+                  placeholder="Login"
+                  value={login}
+                  onChange={this.onLoginHandle}
+                />
+                <div className="line"></div>
+                <input
+                  style={errorColor}
+                  type="password"
+                  className="input"
+                  placeholder="Password"
+                  value={password}
+                  onChange={this.onPasswordHandle}
+                />
+                <div className="line"></div>
+              </div>
+            )}
+            ;
             {isAuth ? (
               <button className="login-btn" onClick={this.alertMessage}>
                 Sign Out

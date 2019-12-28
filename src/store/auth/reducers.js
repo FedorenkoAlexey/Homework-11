@@ -5,16 +5,16 @@ import {
   SET_LOGIN_FALSE,
   ACTIVE_SPINNER,
   SPINNER_OFF
-} from "./actions";
+} from './actions'
 
 const defState = {
-  authLogin: "1",
-  authPassword: "1",
-  login: "",
-  password: "",
+  authLogin: 'Geekhub',
+  authPassword: 's9',
+  login: '',
+  password: '',
   isAuth: false,
   isLoading: false
-};
+}
 
 export const authReducer = (state = defState, action) => {
   switch (action.type) {
@@ -22,44 +22,32 @@ export const authReducer = (state = defState, action) => {
       return {
         ...state,
         login: action.payload
-      };
+      }
     case AUTH_PASSWORD_TEXT:
       return {
         ...state,
         password: action.payload
-      };
+      }
     case SET_LOGIN_TRUE:
       return {
         ...state,
         isAuth: action.payload
-      };
+      }
     case SET_LOGIN_FALSE:
       return {
         ...state,
         isAuth: action.payload
-      };
+      }
     case ACTIVE_SPINNER:
       return {
         ...state,
         isLoading: action.payload
-      };
+      }
     case SPINNER_OFF:
       return {
         ...state,
         isLoading: action.payload
-      };
+      }
   }
-  return state;
-};
-
-// export const loginReducer = (satte = defState, action) => {
-//   switch (action.type) {
-//     case SET_LOGIN_TRUE:
-//       return {
-//         ...satte,
-//         isAuth: action.payload
-//       };
-//   }
-// };
-
-// export default authReducer;
+  return state
+}
