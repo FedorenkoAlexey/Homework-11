@@ -29,11 +29,9 @@ class HomeComponent extends Component {
       this.props.setLoginText("");
       this.props.setPasswordText("");
       this.props.activateSpinner();
-      console.log("1");
       setTimeout(() => {
         this.props.setLogin();
       }, 2000);
-      console.log("2");
     } else {
       alert("NO");
     }
@@ -46,7 +44,7 @@ class HomeComponent extends Component {
 
   render() {
     const { login, password, isAuth, isLoading } = this.props;
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div className="home-wrapper">
         <div className="center">
