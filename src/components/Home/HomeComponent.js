@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { confirmAlert } from "react-confirm-alert";
+
 import "./css/style.css";
 import "./css/fonts.css";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
 import {
   setPasswordText,
@@ -23,6 +26,23 @@ class HomeComponent extends Component {
     console.log(this.props.password);
   };
 
+  alertMessage = () => {
+    confirmAlert({
+      title: "Confirm to exit",
+      message: "Are you sure you want to sign out?",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => this.onLogout()
+        },
+        {
+          label: "Cancel"
+          // onClick: () => alert("Click NO")
+        }
+      ]
+    });
+  };
+
   onLogin = () => {
     const { authLogin, authPassword, login, password } = this.props;
     if (authLogin === login && authPassword === password) {
@@ -31,7 +51,7 @@ class HomeComponent extends Component {
       this.props.activateSpinner();
       setTimeout(() => {
         this.props.setLogin();
-      }, 2000);
+      }, 1000);
     } else {
       alert("NO");
     }
@@ -66,7 +86,7 @@ class HomeComponent extends Component {
             <input
               type="text"
               className="input"
-              placeholder="Your Login"
+              placeholder="Login"
               value={login}
               onChange={this.onLoginHandle}
             />
@@ -74,13 +94,13 @@ class HomeComponent extends Component {
             <input
               type="password"
               className="input"
-              placeholder="Your Password"
+              placeholder="Password"
               value={password}
               onChange={this.onPasswordHandle}
             />
             <div className="line"></div>
             {isAuth ? (
-              <button className="login-btn" onClick={this.onLogout}>
+              <button className="login-btn" onClick={this.alertMessage}>
                 Sign Out
               </button>
             ) : (
