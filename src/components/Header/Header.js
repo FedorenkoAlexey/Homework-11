@@ -1,40 +1,40 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import "./styles.css";
-import { NavLink } from "react-router-dom";
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import './styles.css'
+import { NavLink } from 'react-router-dom'
 
 class Header extends Component {
-  render() {
+  render () {
     return (
-      <div className="header">
+      <div className='header'>
         <nav>
-          <ul className="header-list">
+          <ul className='header-list'>
             <li>
               <NavLink
-                to="/home"
-                activeClassName="active"
-                className="text-link"
+                to='/home'
+                activeClassName='active'
+                className='text-link'
               >
                 Home
               </NavLink>
             </li>
 
             {this.props.isAuth ? (
-              <ul className="protect-routes">
+              <ul className='protect-routes'>
                 <li>
                   <NavLink
-                    to="/product"
-                    activeClassName="active"
-                    className="text-link"
+                    to='/product'
+                    activeClassName='active'
+                    className='text-link'
                   >
                     Product
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
-                    to="/about"
-                    activeClassName="active"
-                    className="text-link"
+                    to='/about'
+                    activeClassName='active'
+                    className='text-link'
                   >
                     About
                   </NavLink>
@@ -44,14 +44,14 @@ class Header extends Component {
           </ul>
         </nav>
       </div>
-    );
+    )
   }
 }
 
 const mapState = state => {
   return {
     isAuth: state.auth.isAuth
-  };
-};
+  }
+}
 
-export default connect(mapState)(Header);
+export default connect(mapState)(Header)

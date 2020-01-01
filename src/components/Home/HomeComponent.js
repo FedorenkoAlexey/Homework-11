@@ -69,7 +69,7 @@ class HomeComponent extends Component {
           errColor: "",
           errBorder: ""
         });
-      }, 1500);
+      }, 2000);
     }
   };
 
