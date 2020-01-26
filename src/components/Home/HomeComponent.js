@@ -27,13 +27,13 @@ class HomeComponent extends Component {
     };
   }
   onLoginHandle = e => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     this.props.setLoginText(e.target.value);
   };
 
   onPasswordHandle = e => {
     this.props.setPasswordText(e.target.value);
-    console.log(this.props.password);
+    // console.log(this.props.password);
   };
 
   alertMessage = () => {
@@ -84,11 +84,9 @@ class HomeComponent extends Component {
   };
 
   componentDidMount() {
-    console.log("Did ", cookie.load("token"));
     const { token } = this.props;
     const logged = cookie.load("token");
-    console.log("token ", token, "cook: ", logged);
-    token === logged ? this.props.setLogin() : console.log("no");
+    token === logged ? this.props.setLogin() : console.log("Cookies empty");
   }
 
   render() {
