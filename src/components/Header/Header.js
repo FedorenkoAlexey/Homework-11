@@ -9,15 +9,17 @@ class Header extends Component {
       <div className='header'>
         <nav>
           <ul className='header-list'>
-            <li>
-              <NavLink
-                to='/home'
-                activeClassName='active'
-                className='text-link'
-              >
-                Home
-              </NavLink>
-            </li>
+            <div className='home-block'>
+              <li>
+                <NavLink
+                  to='/home'
+                  activeClassName='active'
+                  className='text-link'
+                >
+                  Home
+                </NavLink>
+              </li>
+            </div>
 
             {this.props.isAuth ? (
               <ul className='protect-routes'>

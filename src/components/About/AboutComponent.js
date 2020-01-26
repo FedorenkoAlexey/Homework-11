@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
-import './css/style.css'
-import social1 from './assets/social1.png'
-import social2 from './assets/social2.png'
-import social3 from './assets/social3.png'
-import social4 from './assets/social4.png'
-import logo1 from './assets/logo1.png'
-import logo2 from './assets/logo2.png'
-import logo3 from './assets/logo3.png'
+import './style.css'
+import social1 from '../../assets/images/social1.png'
+import social2 from '../../assets/images/social2.png'
+import social3 from '../../assets/images/social3.png'
+import social4 from '../../assets/images/social4.png'
+import logo1 from '../../assets/images/logo1.png'
+import logo2 from '../../assets/images/logo2.png'
+import logo3 from '../../assets/images/logo3.png'
 
 class AboutComponent extends Component {
   render () {
     return (
-      <div>
+      <div className='about-wrap'>
         <div className='logo'>
           <img src={logo1} alt='' className='partners' />
           <img src={logo2} alt='' className='partners' />

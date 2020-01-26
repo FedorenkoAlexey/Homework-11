@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import './css/style.css'
-import './css/fonts.css'
-import icon1 from './assets/icon1.png'
-import icon2 from './assets/icon2.png'
-import icon3 from './assets/icon3.png'
-import icon4 from './assets/icon4.png'
-import watch from './assets/watch.png'
+import './style.css'
+import './fonts.css'
+import icon1 from '../../assets/images/icon1.png'
+import icon2 from '../../assets/images/icon2.png'
+import icon3 from '../../assets/images/icon3.png'
+import icon4 from '../../assets/images/icon4.png'
+import watch from '../../assets/images/watch.png'
 
 class ProductComponent extends Component {
   render () {

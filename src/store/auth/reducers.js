@@ -12,6 +12,7 @@ const defState = {
   authPassword: 's9',
   login: '',
   password: '',
+  token: 'token123',
   isAuth: false,
   isLoading: false
 }

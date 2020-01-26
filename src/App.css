@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background-color: #282c34;
+  max-height: 45px;
   color: white;
   /* min-height: 1100px; */
   height: auto;

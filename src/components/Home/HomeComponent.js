@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { confirmAlert } from "react-confirm-alert";
+import cookie from "react-cookies";
 
-import "./css/style.css";
-import "./css/fonts.css";
+import "./style.css";
+import "./fonts.css";
 import "react-confirm-alert/src/react-confirm-alert.css";
 
 import {
@@ -14,6 +15,8 @@ import {
   activateSpinner,
   spinnerOff
 } from "../../store/auth/actions";
+
+// let allCookes = document.cookie;
 
 class HomeComponent extends Component {
   constructor(props) {
@@ -51,7 +54,7 @@ class HomeComponent extends Component {
   };
 
   onLogin = () => {
-    const { authLogin, authPassword, login, password } = this.props;
+    const { authLogin, authPassword, login, password, token } = this.props;
     if (authLogin === login && authPassword === password) {
       this.props.setLoginText("");
       this.props.setPasswordText("");
@@ -59,6 +62,7 @@ class HomeComponent extends Component {
       setTimeout(() => {
         this.props.setLogin();
       }, 1000);
+      cookie.save("token", token, { path: "/" });
     } else {
       this.setState({
         errColor: "#ff9595",
@@ -76,7 +80,16 @@ class HomeComponent extends Component {
   onLogout = () => {
     this.props.spinnerOff();
     this.props.setLogOut();
+    cookie.remove("token", { path: "/" });
   };
+
+  componentDidMount() {
+    console.log("Did ", cookie.load("token"));
+    const { token } = this.props;
+    const logged = cookie.load("token");
+    console.log("token ", token, "cook: ", logged);
+    token === logged ? this.props.setLogin() : console.log("no");
+  }
 
   render() {
     const { login, password, isAuth, isLoading } = this.props;
@@ -158,7 +171,8 @@ const mapState = state => {
     isAuth: state.auth.isAuth,
     isLoading: state.auth.isLoading,
     authLogin: state.auth.authLogin,
-    authPassword: state.auth.authPassword
+    authPassword: state.auth.authPassword,
+    token: state.auth.token
   };
 };
 
